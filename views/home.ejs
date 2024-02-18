@@ -1,0 +1,87 @@
+<!-- views/home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <!-- container for habits -->
+    <div id="box">
+        <!-- input to add habits -->
+        <div id="add-habit-form" class="rounded bg-blue shadow p-3 mb-5">
+            <form action="/create-habit" method="POST">
+                <div>
+                    <label for="inputAddress">What habit you want to Create?</label>
+                    <input type="text" id="inputAddress" name="habit" placeholder="Enter the name" required>
+                </div>
+                <div>
+                    <label for="inputAddress2">What do you want to Achieve?</label>
+                    <input type="text" id="inputAddress2" name="description" placeholder="Enter your goal" required>
+                </div>
+                <div>
+                    <label for="inputEnd">End Date (Optional)</label>
+                    <input type="date" name="end" id="inputEnd">
+                </div>
+                <div>
+                    <label for="inputEnd">Time</label>
+                    <input type="time" name="time" id="inputEnd" required>
+                </div>
+                <div>
+                    <label for="inputState">Frequency</label>
+                    <select id="inputState" name="frequency">
+                        <option>Twice a Day</option>
+                        <option selected>Daily</option>
+                        <option>Weekly</option>
+                    </select>
+                </div>
+
+                <button type="submit"><i class="fa fa-plus"></i> Create Habit</button>
+                <button type="button" id="cancel-habit"><i class="fa fa-times"></i> Cancel</button>
+            </form>
+        </div>
+
+        <button id="btn-add-habit"><i class="fa fa-plus"></i> Add New Habit</button>
+
+        <!-- list for habits -->
+        <div>
+            <ul id="habits">
+                <% for(let i of habit_list){ %>
+                <li>
+                    <div class="habit-info">
+                        <span id="habit-name"><h4><%= i.habit %></h4> </span>
+                        <div>
+                            <form action="/details/update-habit/?id=<%=i._id%>&day=one&val=<%=i.days.one%>"
+                                method="POST" id="streak-container">
+                                <button type="submit"><%=i.days.one%></button>
+                            </form>
+                            <a href="/delete-habit/?id=<%=i._id%>">
+                                <i></i> Remove
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <% if(i.end!=""){ %>
+                        <p>Ending on : <%=i.end%></p>
+                        <% } else { %>
+                        <p>Building this forever</p>
+                        <% } %>
+                        <p><%=i.description%></p>
+                        <p>Streak :<%=i.streak%>/7</p>
+                        <p><%=i.time%> <%=i.frequency%></p>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+/* CSS for views/details.ejs */
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Heading */
+#heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+#heading h1 {
+    margin: 0;
+}
+
+#heading h1 span {
+    cursor: pointer;
+}
+
+/* Box */
+#box {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Week days list */
+.week-days {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.week-days .list-group-item {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Habit list */
+.habit {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.habit h4 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.habit p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.habit-streak {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Week days record list */
+.week-days .days {
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.week-days .days:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+

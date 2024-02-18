@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/layout.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+    <%- style %>
+</head>
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+
+    
+            <a class="navbar-brand" href="/"> <strong><i class="fa fa-repeat" aria-hidden="true"></i>Habit Tracker</strong></a>
+        
+            <!-- <div class=" navbar-collapse" id="navbarSupportedContent"> -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/details">Details</a>
+                </li>
+            </ul>
+
+            <form>
+                <input  type="search" placeholder="Search Habit" aria-label="Search" id="searchbar" onkeyup="search_habit()">
+                <button  type="button">Search</button>
+            </form>
+            <!-- </div> -->
+        </div>
+      </nav>
+    
+    
+    <%- body %>
+
+    
+    <%- script %>
+    <script type="text/javascript" src="/js/layout.js"></script>
+</body>
+</html>

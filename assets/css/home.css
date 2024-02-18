@@ -1,0 +1,116 @@
+/* CSS for views/home.ejs */
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container */
+#box {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add habit form */
+#add-habit-form {
+    margin-bottom: 20px;
+}
+
+#add-habit-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#add-habit-form input[type="text"],
+#add-habit-form input[type="date"],
+#add-habit-form input[type="time"],
+#add-habit-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-habit-form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-habit-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Add New Habit button */
+#btn-add-habit {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn-add-habit:hover {
+    background-color: #218838;
+}
+
+/* Habit list */
+#habits {
+    list-style-type: none;
+    padding: 0;
+}
+
+#habits li {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.habit-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habit-info h4 {
+    margin: 0;
+}
+
+/* Streak button */
+#streak-container button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#streak-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Remove link */
+.habit-info a {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+.habit-info a:hover {
+    text-decoration: underline;
+}
