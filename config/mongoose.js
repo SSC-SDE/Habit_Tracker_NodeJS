@@ -1,23 +1,33 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://shankhyac:a9883056609@clustertestforapp.raezrtd.mongodb.net/?retryWrites=true&w=majority&appName=ClusterTestforApp";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
 
-    strict: false,
-    deprecationErrors: true,
-  }
+
+// MongoDB Atlas connection URI
+
+
+// Create a new MongoClient instance
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
+
+// Function to connect to MongoDB Atlas and ping the deployment
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    // Connect the client to MongoDB Atlas
     await client.connect();
-    // Send a ping to confirm a successful connection
+
+    // Ping the deployment to confirm the connection
     await client.db("admin").command({ ping: 1 });
+
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } catch{
-    console.error("failed");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  } finally {
+    // Close the connection after completing the operation
+    await client.close();
   }
-  
 }
+
+// Call the run function
 run().catch(console.dir);
