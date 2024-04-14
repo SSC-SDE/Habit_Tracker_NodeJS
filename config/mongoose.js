@@ -1,22 +1,23 @@
-const mongoose = require('mongoose');
-
-// Load environment variables from .env file
-require('dotenv').config();
-
-// Get the MongoDB connection URI from environment variable
-const uri = process.env.MONGODB_URI;
-
-// Connect to MongoDB using Mongoose
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-    // Start your Express server or perform other actions here
-  })
-  .catch(err => {
-    console.error('Error connecting to MongoDB:', err);
-    // Exit the application if failed to connect to the database
-    process.exit(1);
-  });
-
-// Export the Mongoose connection instance to be used elsewhere
-module.exports = mongoose.connection;
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://shankhyac:<password>@clustertestforapp.raezrtd.mongodb.net/?retryWrites=true&w=majority&appName=ClusterTestforApp";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
